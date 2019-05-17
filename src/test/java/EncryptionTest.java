@@ -15,4 +15,11 @@ public class EncryptionTest {
         String expectedOutput = "ecv";
         assertEquals(expectedOutput, testEncryption.Encryption("cat",2));
     }
+
+    @Test
+    public void Encryption_sentenceshifted_String() {
+        Encryption testEncryption = new Encryption();
+        String expectedOutput = "lcxc rtqitcookpi owuv wpfgtuvcpf";
+        assertEquals(expectedOutput, testEncryption.Encryption("java programming must understand", 2));
+    }
 }
