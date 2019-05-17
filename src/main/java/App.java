@@ -1,38 +1,22 @@
-
 import java.io.Console;
 
 public class App {
-//    public static  void main(String[] args) {
-//        Console myConsole = System.console();
-//        System.out.println("Enter the Message to be Encrypted");
-//
-//        String stringInput = myConsole.readLine();
-//
-//        System.out.println("Enter a shift Key");
-//        String stringKey = myConsole.readLine();
-//        int intKey = Integer.parseInt(stringKey);
-//
-//        Encryption testEncryption = new Encryption();
-//        String encrypted = testEncryption.Encryption(stringInput,intKey);
-//
-//        System.out.println("Your Encryption is... " +  encrypted);
-//
-//    }
-
-    public static void main(String[] args) {
+    public static  void main(String[] args) {
         Console myConsole = System.console();
-        System.out.println("Enter message to be Decrypted");
+        Encryption code = new Encryption();
+        Decryption code1 = new Decryption();
 
+        System.out.println("Enter the Message to be Encrypted");
         String stringInput = myConsole.readLine();
 
-        System.out.println("Enter the Shift Key");
-        String stringKey = myConsole.readLine();
-        int intKey = Integer.parseInt(stringKey);
+        System.out.println("Enter a shift Key");
+        int key = Integer.parseInt(myConsole.readLine());
 
-        Decryption testDecryption = new Decryption();
-        String decrypted = testDecryption.Decryption(stringInput, intKey);
+        String encode = code.encryption(stringInput, key);
 
-        System.out.println("Your Decryption is ... " + decrypted);
+        System.out.println("Your Input is... " + stringInput);
+        System.out.println("Your Encryption is... " + encode);
+        System.out.println("Your Decryption is... " + code1.decryption(encode, key));
+
     }
-
 }

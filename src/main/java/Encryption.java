@@ -5,39 +5,22 @@ public class Encryption {
 
 
     //A Function that reads in a message and a key.
-    public String Encryption(String input, int key) {
+    public String encryption(String input, int key) {
 
         //identify the character within the sentence. Find a character's location within the alphabet.
-        StringBuilder encrypted = new StringBuilder(input);
-        String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        String alphabet2 = alphabet.toLowerCase();
-        String keyedalphabet = alphabet.substring(key) +
-                alphabet.substring(0, key);
+        StringBuilder encrypted = new StringBuilder();
+        String alphabet = "abcdefghijklmnopqrstuvwxyz";
+        String encrypt = input.toLowerCase();
 
-        //a for loop that runs through every character within the message
-        for (int q = 0; q < encrypted.length(); q++) {
-            char currChar = encrypted.charAt(q);
-            int index = alphabet.indexOf(currChar);
+        for (int q = 0; q < input.length(); q++)
+        {
+            int iIndex = alphabet.indexOf(encrypt.charAt(q));
+            int eIndex = (iIndex + key) % 26;
 
-            //make sure the spot is a letter.
-            if (index != -1) {
+            encrypted.append(alphabet.charAt(eIndex));
 
-               //build a new sentence using the new characters in place of the original character.
-                char newChar = keyedalphabet.charAt(index);
-                encrypted.setCharAt(q, newChar);
-            }
-            index = alphabet2.indexOf(currChar);
-            if (index != -1) {
-
-                String keyedalaphabet2 =
-                        keyedalphabet.toLowerCase();
-                char newChar = keyedalaphabet2.charAt(index);
-                encrypted.setCharAt(q, newChar);
-            }
         }
         return encrypted.toString();
-
     }
+
 }
-
-
